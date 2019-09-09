@@ -1,6 +1,10 @@
+
 #pragma once
+
 #include <thread>
 #include <mutex>
+// #include <pthread.h>
+
 #include "../handler/handler.h"
 #include "struct.h"
 
@@ -13,8 +17,8 @@ protected:
     int m_height;     // height of image
    
     bool m_use_imu;
-    CHandler* m_phandler;
     bool m_bmono;
+    CHandler* m_phandler;
     std::thread m_get_data_thread;
 
 public:

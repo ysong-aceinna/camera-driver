@@ -16,15 +16,21 @@ else()
 endif()
   message(WARNING "COMPILE_TYPE = ${COMPILE_TYPE}") #make this msg highlight. 
 
+find_package(Threads REQUIRED)
 find_package(OpenCV REQUIRED)
 message(WARNING "OpenCV_VERSION: ${OpenCV_VERSION}")
 
+aux_source_directory(. DIR_SRCS)
 add_subdirectory(driver)
-
 add_library(handler_lib handler/handler.cpp)
 
-find_package(threads)
-
-aux_source_directory(. DIR_SRCS)
 add_executable(driver_demo ${DIR_SRCS})
-target_link_libraries(driver_demo driver_lib handler_lib ${OpenCV_LIBS} ${CMAKE_THREAD_LIBS_INIT})
+
+target_link_libraries(
+  driver_demo 
+  driver_lib 
+  handler_lib
+  mynteye       
+  pthread     # pthread or ${CMAKE_THREAD_LIBS_INIT}
+  ${OpenCV_LIBS})
+
