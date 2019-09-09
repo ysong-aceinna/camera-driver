@@ -1,10 +1,12 @@
-
+/*******************************************************
+ * Copyright (C) 2019
+ *
+ * Author: SongYang (ysong@aceinna.com)
+ *******************************************************/
 #pragma once
 
 #include <thread>
 #include <mutex>
-// #include <pthread.h>
-
 #include "../handler/handler.h"
 #include "struct.h"
 
@@ -46,7 +48,7 @@ public:
     virtual int Init() = 0;
     virtual void Start() = 0;
     virtual void Stop() = 0;
-    // virtual void ThreadGetData() = 0;
-    void AddListener(CHandler* phandler){m_phandler = phandler;}
+    virtual void ThreadGetData() = 0;
 
+    void AddListener(CHandler* p){m_phandler = p;}
 };

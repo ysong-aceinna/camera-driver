@@ -16,6 +16,7 @@ else()
 endif()
   message(WARNING "COMPILE_TYPE = ${COMPILE_TYPE}") #make this msg highlight. 
 
+#find_package(mynteye REQUIRED)
 find_package(Threads REQUIRED)
 find_package(OpenCV REQUIRED)
 message(WARNING "OpenCV_VERSION: ${OpenCV_VERSION}")

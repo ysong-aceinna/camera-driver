@@ -1,3 +1,8 @@
+/*******************************************************
+ * Copyright (C) 2019
+ *
+ * Author: SongYang (ysong@aceinna.com)
+ *******************************************************/
 #pragma once
 
 //refer to struct ImuData of MYNT SDK as standard imu struct.

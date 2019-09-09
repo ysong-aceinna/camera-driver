@@ -1,3 +1,8 @@
+/*******************************************************
+ * Copyright (C) 2019
+ *
+ * Author: SongYang (ysong@aceinna.com)
+ *******************************************************/
 #pragma once
 #include <opencv2/highgui/highgui.hpp>
 #include "mynteye/logger.h"
@@ -19,6 +24,6 @@ public:
     virtual int Init();
     virtual void Start();
     virtual void Stop();
-    // virtual void ThreadGetData();
-    void ThreadGetData();
+    virtual void ThreadGetData();
+    // void ThreadGetData();
 };

@@ -1,3 +1,8 @@
+/*******************************************************
+ * Copyright (C) 2019
+ *
+ * Author: SongYang (ysong@aceinna.com)
+ *******************************************************/
 #include"handler.h"
 
 CHandler::CHandler(/* args */)
@@ -21,20 +26,15 @@ void CHandler::UpdateRightImage(cv::Mat img)
 void CHandler::UpdateIMU(SImuData& imu)
 {
     cout << "UpdateIMU" << endl;
-          /*
-      for (auto &&data : motion_datas) {
-        LOG(INFO) << "Imu frame_id: " << data.imu->frame_id
-                  << ", timestamp: " << data.imu->timestamp
-                  << ", accel_x: " << data.imu->accel[0]
-                  << ", accel_y: " << data.imu->accel[1]
-                  << ", accel_z: " << data.imu->accel[2]
-                  << ", gyro_x: " << data.imu->gyro[0]
-                  << ", gyro_y: " << data.imu->gyro[1]
-                  << ", gyro_z: " << data.imu->gyro[2]
-                  << ", temperature: " << data.imu->temperature;
-      }
-      */
-
+    LOG(INFO) << "Imu frame_id: " << imu.frame_id
+                << ", timestamp: " << imu.timestamp
+                << ", accel_x: " << imu.accel[0]
+                << ", accel_y: " << imu.accel[1]
+                << ", accel_z: " << imu.accel[2]
+                << ", gyro_x: " << imu.gyro[0]
+                << ", gyro_y: " << imu.gyro[1]
+                << ", gyro_z: " << imu.gyro[2]
+                << ", temperature: " << imu.temperature;
 }
 
     //   painter.DrawImgData(img, *left_data.img);

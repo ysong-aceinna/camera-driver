@@ -1,4 +1,8 @@
-
+/*******************************************************
+ * Copyright (C) 2019
+ *
+ * Author: SongYang (ysong@aceinna.com)
+ *******************************************************/
 #include "mynt_S1030.h"
 
 
@@ -16,11 +20,11 @@ int CMyntS1030Driver::Init()
   if (!m_api)
     return 1;
 
-  bool ok;
-  auto &&request = m_api->SelectStreamRequest(&ok);
-  if (!ok)
-    return 1;
+  auto request = m_api->GetStreamRequest();
+  request.width = 376;
+  request.height = 240;
   m_api->ConfigStreamRequest(request);
+
   return 0;
 }
 
