@@ -1,0 +1,3 @@
+/mnt/wind/project/camera-driver/test/build/CMakeFiles/rebuild_cache.dir
+/mnt/wind/project/camera-driver/test/build/CMakeFiles/driver_demo.dir
+/mnt/wind/project/camera-driver/test/build/CMakeFiles/edit_cache.dir
