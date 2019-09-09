@@ -5,7 +5,8 @@
  *******************************************************/
 #pragma once
 #include <opencv2/highgui/highgui.hpp>
-#include "mynteye/logger.h"
+#include <glog/logging.h>
+// #include "mynteye/logger.h"
 #include "mynteye/api/api.h"
 // #include "util/cv_painter.h"
 

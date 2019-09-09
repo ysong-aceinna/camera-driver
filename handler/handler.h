@@ -7,7 +7,8 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include "../driver/struct.h"
-#include "mynteye/logger.h"
+// #include "mynteye/logger.h"
+#include <glog/logging.h>
 
 using namespace std;
 

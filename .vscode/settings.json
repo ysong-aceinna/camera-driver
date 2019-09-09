@@ -57,5 +57,6 @@
         "set": "cpp",
         "string": "cpp",
         "list": "cpp"
-    }
+    },
+    "python.pythonPath": "/Users/songyang/.platformio/penv/bin/python"
 }
