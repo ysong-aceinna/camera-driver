@@ -2,13 +2,13 @@
 cmake_minimum_required(VERSION 3.1)
 project(driver VERSION 1.0.0 LANGUAGES C CXX)
 
-####### set driver type: mynteye, ROS ... #######
-option (ENABLE_MYNT_SDK "Enable MYNT SDK" OFF)
-option (ENABLE_MYNT_ROS "Enable MYNT ROS driver." ON)
+####### Choose driver type: mynteye, ROS ... #######
+option (ENABLE_MYNT_SDK "Enable MYNT SDK" ON)
+option (ENABLE_MYNT_ROS "Enable MYNT ROS driver." OFF)
 
 #################################################
 
-############ set Release or Debug ##############
+############ Choose Release or Debug ##############
 set(COMPILE_TYPE Debug)
 if(COMPILE_TYPE STREQUAL "Release")
   set(CMAKE_BUILD_TYPE "Release")
@@ -26,7 +26,8 @@ endif()
 
 ################# some setting ##################
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
+#below setting is used to find 
+set(CMAKE_INCLUDE_CURRENT_DIR ON) 
 
 if (ENABLE_MYNT_SDK)
   set(DRIVER_TYPE mynteye)
