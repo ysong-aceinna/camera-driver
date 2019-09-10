@@ -5,22 +5,23 @@
  *******************************************************/
 #pragma once
 #include <iostream>
+#include <unistd.h>
 #include <opencv2/opencv.hpp>
 #include "../driver/struct.h"
-// #include "mynteye/logger.h"
 #include <glog/logging.h>
+#include "../util/macro.h"
 
 using namespace std;
 
 class CHandler
 {
 private:
-    /* data */
+
 public:
     CHandler();
     ~CHandler();
     
-    void UpdateLeftImage (cv::Mat img);
-    void UpdateRightImage(cv::Mat img);
+    void UpdateLeftImage (SImgData img);
+    void UpdateRightImage(SImgData img);
     void UpdateIMU(SImuData& imu);
 };

@@ -13,21 +13,26 @@ CHandler::~CHandler()
 {
 }
 
-void CHandler::UpdateLeftImage(cv::Mat img)
+void CHandler::UpdateLeftImage(SImgData img)
 {
-    cout << "UpdateLeftImage" << endl;
+    cv::imshow("Left", img.frame);
+    cv::waitKey(1);
+    LOG(INFO) << "Left frame_id: " << img.frame_id << "  ,Left time: " << img.timestamp/1000;
+
 }
 
-void CHandler::UpdateRightImage(cv::Mat img)
+void CHandler::UpdateRightImage(SImgData img)
 {
-    cout << "UpdateRightImage" << endl;
+    cv::imshow("Right", img.frame);
+    cv::waitKey(1);
+    LOG(INFO) << "Right frame_id: " << img.frame_id << "  ,Right time: " << img.timestamp/1000;
+
 }
 
 void CHandler::UpdateIMU(SImuData& imu)
 {
-    cout << "UpdateIMU" << endl;
     LOG(INFO) << "Imu frame_id: " << imu.frame_id
-                << ", timestamp: " << imu.timestamp
+                << ", timestamp: " << imu.timestamp/1000
                 << ", accel_x: " << imu.accel[0]
                 << ", accel_y: " << imu.accel[1]
                 << ", accel_z: " << imu.accel[2]
@@ -36,10 +41,3 @@ void CHandler::UpdateIMU(SImuData& imu)
                 << ", gyro_z: " << imu.gyro[2]
                 << ", temperature: " << imu.temperature;
 }
-
-    //   painter.DrawImgData(img, *left_data.img);
-    //   if (!motion_datas.empty() && motion_datas.size() > 0) {
-    //     painter.DrawImuData(img, *motion_datas[0].imu);
-    //   }
-
-    //   cv::imshow("frame", img);

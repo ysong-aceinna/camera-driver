@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.1)
 project(driver VERSION 1.0.0 LANGUAGES C CXX)
 
 ############ set Release or Debug ##############
-set(COMPILE_TYPE Release)
+set(COMPILE_TYPE Debug)
 if(COMPILE_TYPE STREQUAL "Release")
   set(CMAKE_BUILD_TYPE "Release")
   set(CMAKE_CXX_FLAGS "-std=c++11")
@@ -37,6 +37,7 @@ include_directories( ${MINIGLOG_INCLUDE_DIRS})
 
 aux_source_directory(. DIR_SRCS)
 add_subdirectory(driver)
+add_subdirectory(util)
 #################################################
 
 ################# add library ###################
@@ -49,6 +50,7 @@ add_executable(driver_demo ${DIR_SRCS})
 target_link_libraries(driver_demo
                       driver_lib 
                       handler_lib
+                      util_lib
                       ${DRIVER_TYPE}
                       ${MINIGLOG_LIBS}
                       pthread     # pthread or ${CMAKE_THREAD_LIBS_INIT}

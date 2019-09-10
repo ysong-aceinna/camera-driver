@@ -5,27 +5,24 @@
  *******************************************************/
 #pragma once
 #include <opencv2/highgui/highgui.hpp>
-#include "mynteye/api/api.h"
 #include "driver.h"
 #include "../util/cv_painter.h"
 
-MYNTEYE_USE_NAMESPACE
-
-class CMyntS1030Driver : public CDriverBase
+class CMyntS1030ROSDriver : public CDriverBase
 {
 private:
-  std::shared_ptr<API> m_api;
+
 public:
-  CMyntS1030Driver();
-  virtual ~CMyntS1030Driver();
+  CMyntS1030ROSDriver();
+  virtual ~CMyntS1030ROSDriver();
 
   virtual int Init();
   virtual void Start();
   virtual void Stop();
   virtual void ThreadGetData();
 
-  SImgData ImageDataConvert(const api::StreamData src);
-  SImuData IMUDataConvert(const api::MotionData src);
-  SImgData ModifyImage(const cv::Mat img, const SImgData imgData);
+  // SImgData ImageDataConvert(const api::StreamData src);
+  // SImuData IMUDataConvert(const api::MotionData src);
+  // SImgData ModifyImage(const cv::Mat img, const SImgData imgData);
 
 };

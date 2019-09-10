@@ -20,5 +20,5 @@ find_package(OpenCV REQUIRED)
 message(WARNING "OpenCV_VERSION: ${OpenCV_VERSION}")
 
 
-add_executable(driver_demo mynteye_demo.cpp)
+add_executable(driver_demo driver_demo.cpp)
 target_link_libraries(driver_demo  mynteye ${OpenCV_LIBS})
