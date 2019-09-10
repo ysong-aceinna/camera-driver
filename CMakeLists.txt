@@ -9,12 +9,12 @@ option (ENABLE_MYNT_ROS "Enable MYNT ROS driver." OFF)
 #################################################
 
 ############ Choose Release or Debug ##############
-set(COMPILE_TYPE Debug)
+set(COMPILE_TYPE Release)
 if(COMPILE_TYPE STREQUAL "Release")
   set(CMAKE_BUILD_TYPE "Release")
   set(CMAKE_CXX_FLAGS "-std=c++11")
   #-DEIGEN_USE_MKL_ALL")
-  set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -g")
+  set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -g")=
 elseif(COMPILE_TYPE STREQUAL "Debug")
   SET(CMAKE_BUILD_TYPE "Debug")
   SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
