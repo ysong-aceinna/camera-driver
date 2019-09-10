@@ -1,5 +1,11 @@
-# 查找当前目录下的所有源文件
-# 并将名称保存到 DIR_LIB_SRCS 变量
-aux_source_directory(. DIR_LIB_SRCS)
-# 生成链接库
+
+set(DIR_LIB_SRCS driver.cpp)
+
+if (ENABLE_MYNT_SDK)
+    set(DIR_LIB_SRCS ${DIR_LIB_SRCS} mynt_S1030.cpp)
+elseif(ENABLE_MYNT_ROS)
+    set(DIR_LIB_SRCS ${DIR_LIB_SRCS} mynt_S1030_ros.cpp)
+endif()
+
 add_library (driver_lib ${DIR_LIB_SRCS})
+# aux_source_directory(. DIR_LIB_SRCS)

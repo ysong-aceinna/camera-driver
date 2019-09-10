@@ -22,7 +22,10 @@ struct SImuData {
   bool is_ets = false;
   /** IMU timestamp in 1us */
   std::uint64_t timestamp;
-  /** IMU accelerometer data for 3-axis: X, Y, Z. */
+  /* Refer to http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html */
+  /* Accelerations and rotational velocity should be same as sensor_msgs/Imu Message of ROS.*/
+  /* accel unit: m/s^2    gyro unit: rad/s  */
+  /** IMU accelerometer data for 3-axis: X, Y, Z.*/ 
   double accel[3];
   /** IMU gyroscope data for 3-axis: X, Y, Z. */
   double gyro[3];

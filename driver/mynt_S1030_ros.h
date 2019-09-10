@@ -4,6 +4,15 @@
  * Author: SongYang (ysong@aceinna.com)
  *******************************************************/
 #pragma once
+// #include <stdio.h>
+// #include <queue>
+// #include <map>
+// #include <thread>
+// #include <mutex>
+// #include <ros/ros.h>
+// #include <cv_bridge/cv_bridge.h>
+// #include <opencv2/opencv.hpp>
+
 #include <opencv2/highgui/highgui.hpp>
 #include "driver.h"
 #include "../util/cv_painter.h"

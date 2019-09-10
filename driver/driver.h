@@ -25,10 +25,13 @@ protected:
     std::mutex m_mx_exit;
     std::thread m_get_data_thread;
 
-    /////////////  ROS  ///////////
+    // ROS
     std::string m_image0_topic, m_image1_topic, m_imu_topic;
     int m_use_imu;
     bool m_bmono;
+
+   const double R2D = 180.0/M_PI;
+   const double G_N = 9.8; //g_normal
 
 public:
     CDriverBase();

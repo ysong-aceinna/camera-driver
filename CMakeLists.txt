@@ -1,5 +1,12 @@
+# cmake -D ENABLE_MYNT_SDK=ON .. 
 cmake_minimum_required(VERSION 3.1)
 project(driver VERSION 1.0.0 LANGUAGES C CXX)
+
+####### set driver type: mynteye, ROS ... #######
+option (ENABLE_MYNT_SDK "Enable MYNT SDK" OFF)
+option (ENABLE_MYNT_ROS "Enable MYNT ROS driver." ON)
+
+#################################################
 
 ############ set Release or Debug ##############
 set(COMPILE_TYPE Debug)
@@ -14,11 +21,22 @@ elseif(COMPILE_TYPE STREQUAL "Debug")
 else()
   message(FATAL_ERROR "COMPILE_TYPE is Error!")
 endif()
-  message(WARNING "COMPILE_TYPE = ${COMPILE_TYPE}") #make this msg highlight. 
+  message(WARNING "COMPILE_TYPE = ${COMPILE_TYPE}") 
 #################################################
 
-### set driver type: mynteye, ROS.
-set(DRIVER_TYPE mynteye)
+################# some setting ##################
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+if (ENABLE_MYNT_SDK)
+  set(DRIVER_TYPE mynteye)
+elseif(ENABLE_MYNT_ROS)
+  include_directories(${catkin_INCLUDE_DIRS})
+  catkin_package()
+  set(DRIVER_TYPE ${catkin_LIBRARIES})
+endif()
+
+#################################################
 
 ############# find relevant packages ############
 find_package(Threads REQUIRED)
@@ -38,6 +56,12 @@ include_directories( ${MINIGLOG_INCLUDE_DIRS})
 aux_source_directory(. DIR_SRCS)
 add_subdirectory(driver)
 add_subdirectory(util)
+
+configure_file (
+  "${PROJECT_SOURCE_DIR}/config.h.in"
+  "${PROJECT_BINARY_DIR}/config.h"
+  )
+
 #################################################
 
 ################# add library ###################
