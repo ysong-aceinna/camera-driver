@@ -24,8 +24,8 @@ public:
   virtual void Stop();
   virtual void ThreadGetData();
 
-  SImgData ImageDataConvert(const api::StreamData src);
-  SImuData IMUDataConvert(const api::MotionData src);
-  SImgData ModifyImage(const cv::Mat img, const SImgData imgData);
+  SImgData ImageDataConvert(const api::StreamData& src);
+  SImuData IMUDataConvert(const api::MotionData& src);
+  SImgData ModifyImage(const cv::Mat& img, const SImgData& imgData);
 
 };

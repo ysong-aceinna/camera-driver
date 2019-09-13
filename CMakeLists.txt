@@ -14,7 +14,7 @@ if(COMPILE_TYPE STREQUAL "Release")
   set(CMAKE_BUILD_TYPE "Release")
   set(CMAKE_CXX_FLAGS "-std=c++11")
   #-DEIGEN_USE_MKL_ALL")
-  set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -g")=
+  set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -g")
 elseif(COMPILE_TYPE STREQUAL "Debug")
   SET(CMAKE_BUILD_TYPE "Debug")
   SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
@@ -26,8 +26,9 @@ endif()
 
 ################# some setting ##################
 
-#below setting is used to find 
-set(CMAKE_INCLUDE_CURRENT_DIR ON) 
+#below setting is used to find _build/config.h
+# set(CMAKE_INCLUDE_CURRENT_DIR ON) 
+include_directories(${PROJECT_BINARY_DIR})
 
 if (ENABLE_MYNT_SDK)
   set(DRIVER_TYPE mynteye)

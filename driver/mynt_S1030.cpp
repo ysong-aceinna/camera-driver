@@ -123,7 +123,7 @@ void CMyntS1030Driver::ThreadGetData()
   }
 }
 
-SImgData CMyntS1030Driver::ImageDataConvert(const api::StreamData src)
+SImgData CMyntS1030Driver::ImageDataConvert(const api::StreamData& src)
 {
   SImgData dst;
   src.frame.copyTo(dst.frame);
@@ -137,7 +137,7 @@ SImgData CMyntS1030Driver::ImageDataConvert(const api::StreamData src)
 // unit of accel from MYNT SDK is g, should be convert to m/s^2,
 // unit of gyro from MYNT SDK is deg/sec, should be convert to rad/sec, 
 // which the same as sensor_msgs/Imu Message of ROS
-SImuData CMyntS1030Driver::IMUDataConvert(const api::MotionData src)
+SImuData CMyntS1030Driver::IMUDataConvert(const api::MotionData& src)
 {
   SImuData dst;
   dst.frame_id = src.imu->frame_id;
@@ -156,7 +156,7 @@ SImuData CMyntS1030Driver::IMUDataConvert(const api::MotionData src)
   return dst;
 }
 
-SImgData CMyntS1030Driver::ModifyImage(const cv::Mat img, const SImgData imgData)
+SImgData CMyntS1030Driver::ModifyImage(const cv::Mat& img, const SImgData& imgData)
 {
   SImgData new_image(imgData);
   img.copyTo(new_image.frame);
